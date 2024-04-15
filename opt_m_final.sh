@@ -10,10 +10,10 @@ Leptsarm-Roji-M63"
 #set absolute path variables for Processed reads (radtags output), output location (Stacks/Taxaname), 
 #and popmap. Be careful about starting/ending the path on a /. It should be exactly the same as the example below in this sense. 
 
-Taxa='Leptsarm'
-Popmap='/mbl/share/workspaces/groups/riesgo/Sergi/Ana-Torriente/PopMaps/Popmap_Leptsarm_all.txt'
-Processed='/mbl/share/workspaces/groups/riesgo/Sergi/Ana-Torriente/Processed'
-Stacks='/mbl/share/workspaces/groups/riesgo/Sergi/Ana-Torriente/Stacks'
+Taxa='Leptsarm' #name of taxa
+Popmap='/mbl/share/workspaces/groups/riesgo/Sergi/Ana-Torriente/PopMaps/Popmap_Leptsarm_all.txt' #popmap location
+Processed='/mbl/share/workspaces/groups/riesgo/Sergi/Ana-Torriente/Processed' #processed RADtags location
+Stacks='/mbl/share/workspaces/groups/riesgo/Sergi/Ana-Torriente/Stacks' #output location
 
 # Build loci de novo in each sample for the single-end reads only.
 # -M — Maximum distance (in nucleotides) allowed between stacks (default 2).
