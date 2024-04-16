@@ -1,5 +1,5 @@
 # StacksHelp
-This is a version of a bash loop from the Stacks Manual and RadStacksHelpR that can be used to automatically run iterations of the Stacks pipeline to easily optimize parameters. 
+This is a version of a bash loop from the Stacks Manual and RadStacksHelpR that can be used to automatically run iterations of the Stacks pipeline to easily optimize parameters, and in this case has been modified to work with PAIRED END data.
 
 Each bash script is for a different parameter. First, you should run the "m" script to iterate through values of m, then use the RadStacksHelpR "m" script to visualize the optimum value. Next, run the "M" script using the optimum value of m that you've just obtained. Then repeat the same process for "n". 
 
