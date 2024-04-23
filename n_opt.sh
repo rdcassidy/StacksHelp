@@ -1,8 +1,4 @@
 #!/bin/sh
-#designate all sample ID's to a single variable called 'files', each sample should be in the directory, and the filename should match this designation except for the extension, e.g., 'sample_2' = 'sample_2.fq.gz'
-files="Leptsarm-AmAnar-M05
-Leptsarm-Mor-M89
-Leptsarm-Roji-M63"
 
 #set absolute path variables for Processed reads (radtags output), output location (Stacks/Taxaname),
 #and popmap. Be careful about starting/ending the path on a /. It should be exactly the same as the example below in this sense.
