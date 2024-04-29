@@ -1,7 +1,7 @@
 #!/bin/sh
 
 STACKS="/mbl/share/workspaces/groups/riesgo/Sergi/Emuelleri/Stacks" ### directory to the output folders from optimization (probably stacks)
-Param='M' #parameter of outputs as it is put in the folder names (m, M or N)
+Param='M' #parameter of outputs as it is put in the folder names (m, M or n)
 Downloads="/mbl/share/workspaces/groups/riesgo/Sergi/Emuelleri/Downloads" #path to folder where you will store downloads. make this if you don't have it already
 files="Emue_Subset1
 Emue_Subset2
