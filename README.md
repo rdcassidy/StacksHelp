@@ -48,8 +48,9 @@ If this doesn't work then try again with the following two commands:
 7. Use the R script (example is on this github) to analyze the optimal parameters for "m" (you only need to enter your paths to the downloaded .vcf files you just downloaded and run the first couple commands).
 8. Open the opt_M.sh file and repeat the same process. **But with the value for " -m " set to the optimal value**
 
-It is best to use the same R script for all m, M, and n parameters for a subset. Once you have finished all the runs, you can then combine them into one graphic to put in your notes.
-       
+It is best to use the same R script for all m, M, and n parameters for a subset. Once you have finished all the runs, you can then combine them into one graphic to put in your notes. 
+
+**Note that the original R script only allows you to analyze parameter values of m = 3-7, M = 1-8, and n = "M", "M+1", and "M-1". For this reason, I have included an additional example in which I have edited the optimize_n function to allow analysis of values of n = 1-8 (file is named RadStacksR_n8.R)**
 
 
 
