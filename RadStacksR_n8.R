@@ -57,74 +57,15 @@ vis_loci(output = M.out, stacks_param = "M")
 #> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
 #> Picking joint bandwidth of 2920
 #>
-#> #optimize n
-n.out<-optimize_n(nequalsMminus1="C:/Users/Usuario/Dropbox/Robert-Cassidy/Librerias Cnidarios/STACKS/Parameter_optimization/n_params/Pgrayi_n5/populations.snps.vcf",
-                  nequalsM="C:/Users/Usuario/Dropbox/Robert-Cassidy/Librerias Cnidarios/STACKS/Parameter_optimization/n_params/Pgrayi_n6/populations.snps.vcf",
-                  nequalsMplus1="C:/Users/Usuario/Dropbox/Robert-Cassidy/Librerias Cnidarios/STACKS/Parameter_optimization/n_params/Pgrayi_n7/populations.snps.vcf")
-
-##Assigning the output of this function to the variable 'n.out' should generate a single object of class 'data.frame' showing the number of SNPs and loci retained across filtering levels for each value of n.
-
-#visualize the effect of varying n on the number of SNPs retained
-vis_snps(output = n.out, stacks_param = "n")
-#> Visualize how different values of n affect number of SNPs retained.
-#> Density plot shows the distribution of the number of SNPs retained in each sample,
-#> while the asterisk denotes the total number of SNPs retained at an 80% completeness cutoff.
-#> Picking joint bandwidth of 7420
-#visualize the effect of varying n on the number of polymorphic loci retained
-vis_loci(output = n.out, stacks_param = "n")
-#> Visualize how different values of n affect number of polymorphic loci retained.
-#> Density plot shows the distribution of the number of loci retained in each sample,
-#> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
-#> Picking joint bandwidth of 3230
-#>
-#> #load gridExtra package to combine ggplot visualizations
-library(gridExtra)
-
-#combine all of these prior visulizations in a single list
-gl<-list()
-gl[[1]]<-vis_depth(output = m.out)
-#> [1] "Visualize how different values of m affect average depth in each sample"
-gl[[2]]<-vis_snps(output = m.out, stacks_param = "m")
-#> Visualize how different values of m affect number of SNPs retained.
-#> Density plot shows the distribution of the number of SNPs retained in each sample,
-#> while the asterisk denotes the total number of SNPs retained at an 80% completeness cutoff.
-gl[[3]]<-vis_loci(output = m.out, stacks_param = "m")
-#> Visualize how different values of m affect number of polymorphic loci retained.
-#> Density plot shows the distribution of the number of loci retained in each sample,
-#> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
-gl[[4]]<-vis_snps(output = M.out, stacks_param = "M")
-#> Visualize how different values of M affect number of SNPs retained.
-#> Density plot shows the distribution of the number of SNPs retained in each sample,
-#> while the asterisk denotes the total number of SNPs retained at an 80% completeness cutoff.
-gl[[5]]<-vis_loci(output = M.out, stacks_param = "M")
-#> Visualize how different values of M affect number of polymorphic loci retained.
-#> Density plot shows the distribution of the number of loci retained in each sample,
-#> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
-gl[[6]]<-vis_snps(output = n.out, stacks_param = "n")
-#> Visualize how different values of n affect number of SNPs retained.
-#> Density plot shows the distribution of the number of SNPs retained in each sample,
-#> while the asterisk denotes the total number of SNPs retained at an 80% completeness cutoff.
-gl[[7]]<-vis_loci(output = n.out, stacks_param = "n")
-#> Visualize how different values of n affect number of polymorphic loci retained.
-#> Density plot shows the distribution of the number of loci retained in each sample,
-#> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
-
-#visualize each item of the list as part of a single grid
-grid.arrange(grobs = gl, widths = c(1,1,1,1,1,1),
-             layout_matrix = rbind(c(1,1,2,2,3,3),
-                                   c(4,4,4,5,5,5),
-                                   c(6,6,6,7,7,7))
-)
 
 
 
-
-#####END OF ORIGINAL R SCRIPT. Below is an edited version that allows graphing of 8 values of n.
+#####END OF ORIGINAL RadStacksHelpR SCRIPT. This is an edited version that allows graphing of 8 values of n.
 ###This can be used as an example of how to quickly edit any of the functions to allow more
 ###or fewer variables. All you have to do is
 ###1) look at the the original function (highlight and CTRL + double click)
 ###2) copy it to the R script and give it a new name
-###3) change the variables (n1=NULL,n2=NULL,n3=NULL,n4=NULL,n5=NULL,n6=NULL,n7=NULL,n8=NULL) to match the numbers that you want.
+###3) change the variable arguments "(n1=NULL,n2=NULL,n3=NULL,n4=NULL,n5=NULL,n6=NULL,n7=NULL,n8=NULL)" to match the numbers that you want.
 
 
 my_n_opt <- function(n1=NULL,n2=NULL,n3=NULL,n4=NULL,n5=NULL,n6=NULL,n7=NULL,n8=NULL){
@@ -206,6 +147,7 @@ n.out<-my_n_opt(n1="C:/Users/Usuario/Dropbox/Robert-Cassidy/Librerias Cnidarios/
                   n7="C:/Users/Usuario/Dropbox/Robert-Cassidy/Librerias Cnidarios/STACKS/Parameter_optimization/n_params/Pgrayi_n5/populations.snps.vcf",
                   n8="C:/Users/Usuario/Dropbox/Robert-Cassidy/Librerias Cnidarios/STACKS/Parameter_optimization/n_params/Pgrayi_n6/populations.snps.vcf")
 
+
 #visualize the effect of varying n on the number of SNPs retained
 vis_snps(output = n.out, stacks_param = "n")
 #> Visualize how different values of n affect number of SNPs retained.
@@ -219,3 +161,43 @@ vis_loci(output = n.out, stacks_param = "n")
 #> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
 #> Picking joint bandwidth of 3230
 #>
+#> #load gridExtra package to combine ggplot visualizations
+library(gridExtra)
+
+#combine all of these prior visulizations in a single list
+gl<-list()
+gl[[1]]<-vis_depth(output = m.out)
+#> [1] "Visualize how different values of m affect average depth in each sample"
+gl[[2]]<-vis_snps(output = m.out, stacks_param = "m")
+#> Visualize how different values of m affect number of SNPs retained.
+#> Density plot shows the distribution of the number of SNPs retained in each sample,
+#> while the asterisk denotes the total number of SNPs retained at an 80% completeness cutoff.
+gl[[3]]<-vis_loci(output = m.out, stacks_param = "m")
+#> Visualize how different values of m affect number of polymorphic loci retained.
+#> Density plot shows the distribution of the number of loci retained in each sample,
+#> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
+gl[[4]]<-vis_snps(output = M.out, stacks_param = "M")
+#> Visualize how different values of M affect number of SNPs retained.
+#> Density plot shows the distribution of the number of SNPs retained in each sample,
+#> while the asterisk denotes the total number of SNPs retained at an 80% completeness cutoff.
+gl[[5]]<-vis_loci(output = M.out, stacks_param = "M")
+#> Visualize how different values of M affect number of polymorphic loci retained.
+#> Density plot shows the distribution of the number of loci retained in each sample,
+#> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
+gl[[6]]<-vis_snps(output = n.out, stacks_param = "n")
+#> Visualize how different values of n affect number of SNPs retained.
+#> Density plot shows the distribution of the number of SNPs retained in each sample,
+#> while the asterisk denotes the total number of SNPs retained at an 80% completeness cutoff.
+gl[[7]]<-vis_loci(output = n.out, stacks_param = "n")
+#> Visualize how different values of n affect number of polymorphic loci retained.
+#> Density plot shows the distribution of the number of loci retained in each sample,
+#> while the asterisk denotes the total number of loci retained at an 80% completeness cutoff. The optimal value is denoted by red color.
+
+#visualize each item of the list as part of a single grid
+grid.arrange(grobs = gl, widths = c(1,1,1,1,1,1),
+             layout_matrix = rbind(c(1,1,2,2,3,3),
+                                   c(4,4,4,5,5,5),
+                                   c(6,6,6,7,7,7))
+)
+
+
