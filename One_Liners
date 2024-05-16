@@ -2,6 +2,14 @@ ONE LINERS
 
 This file is a repository of one liners that are useful for Sergi's ddRADseq protocol.
 
-1. When creating a blacklist of samples departing Hardy-Weinberg Equilibrium, this command first counts the number HWE values (column 20) below 0.05 for each unique ID, and then creates a txt file of the IDs for which two or more were below 0.05. 
+1. If running the bowtie2 genome alignment loop for a directory of paired end reads, the following can produce a list of alignment rates for each individual cocatenated in one file: 
+
+for file in *; do awk 'NR==15 {print substr($0, 1, 6), FILENAME}' "$file" | xargs -n 2; done >> alignment_percents.txt
+
+2. To sort all the .bam files output from the bowtie2 genome alignment loop before inputting into Stacks: 
+
+for file in *.bam; do samtools sort -o Sorted/${file} ${file}; done
+
+3. When creating a blacklist of samples departing Hardy-Weinberg Equilibrium, this command first counts the number HWE values (column 20) below 0.05 for each unique ID, and then creates a txt file of the IDs for which two or more were below 0.05. 
 
 awk -F'\t' '{print $1 "\t" $20}' populations.sumstats.tsv | sed '1,8d' | awk -F'\t' '{if ($2 < 0.05) counts[$1]++} END {for (key in counts) print key "\t" counts[key]}' output1.tsv | awk -F'\t' '$2 >= 2 {print $1}' > blacklist_trial.txt
